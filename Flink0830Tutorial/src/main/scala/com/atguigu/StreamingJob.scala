@@ -36,6 +36,16 @@ object StreamingJob {
   def main(args: Array[String]) {
     // set up the streaming execution environment
     val env = StreamExecutionEnvironment.getExecutionEnvironment
+    env.setParallelism(1)
+    val stream = env
+      .fromElements(1,2,3).setParallelism(1) // source
+
+    // 1,2,3,4 -> map(r => r + 1)
+
+    stream
+      .map(r => r + 1).setParallelism(1) // transformation
+      .print() // sink
+      .setParallelism(1)
 
     /*
      * Here, you can start creating your execution plan for Flink.
