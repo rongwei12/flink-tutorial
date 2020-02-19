@@ -277,7 +277,7 @@ cd flink-1.10.0
 
 可以打开Flink WebUI查看集群状态：http://localhost:8081
 
-在`IDEA`中使用`maven package`打包。
+在``IDEA``中使用``maven package``打包。
 
 提交打包好的``JAR``包
 
@@ -292,4 +292,11 @@ cd flink-1.10.0
 [source,shell]
 ----
 ./bin/stop-cluster.sh
+----
+
+查看标准输出日志的位置，在``log``文件夹中。
+
+[source,shell]
+----
+cd flink-1.10.0/log
 ----
